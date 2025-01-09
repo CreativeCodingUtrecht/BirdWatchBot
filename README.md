@@ -1,4 +1,4 @@
-# BirdWatchBot
+# BirdWatchBot Workshop
 
 BirdWatchBot is a hands-on workshop created by [Creative Coding Utrecht](https://creativecodingutrecht.nl).
 
@@ -198,7 +198,21 @@ BirdNET-Pi allows you to configure when you want to receive notifications. You c
 When you're ready, make sure to click on `Update Settings` at the bottom of the page.
 
 #### Telegram
-For more detailed instructions, see [Apprise documentation for using Telegram](https://github.com/caronc/apprise/wiki/Notify_telegram).
+On Telegram, BirdNET-Pi can send a notification to a Telegram Bot. So, let's create one!
+
+Check out the detailed [Apprise documentation for using Telegram](https://github.com/caronc/apprise/wiki/Notify_telegram) for instructions on how to create your own Bot on Telegram.
+
+You now need to figure out the `chat_id` to configure the Telegram notification correctly. You can use the following URL for this:
+
+```
+https://api.telegram.org/bot{YOURBOTTOKEN}/getUpdates
+```
+
+For instance, if your Bot token is `7760312342:AAXx5HAxiANK9w-qXucHEl42sEe6GWcc36c` you can use the following URL:
+
+```
+https://api.telegram.org/bot7760312342:AAXx5HAxiANK9w-qXucHEl42sEe6GWcc36c/getUpdates
+
 
 #### Telegram Group
 Do you want to follow detections with multiple people? Our suggestion is to create a public Telegram Group to collect BirdNET-Pi notifications. To achieve this, add your Telegram Bot to this group and use the `chatid` of the group when configuring the Apprise notification via Telegram on your BirdNET-Pi.
