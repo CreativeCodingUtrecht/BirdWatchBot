@@ -189,7 +189,7 @@ Open [BirdWeather](https://app.birdweather.com/) and search for your own station
 Since we're in the workshop space, play some bird sound recordings near your microphone. 
 
 ### Receive notifications when a bird is detected
-The BirdNET-PI uses Apprise to send notifications. You can send these notifications to multiple destinations such as Telegram and Discord. 
+The BirdNET-PI uses Apprise to send notifications. You can send these notifications to multiple destinations such as Telegram and Discord. For a comprehensive list of all supported platforms see [Apprise documentation](https://github.com/caronc/apprise?tab=readme-ov-file#supported-notifications).
 
 In the menu of the BirdNET-Pi dashboard, click on `Tools`. Then, select `Settings`. Notifications can be configured under `Notifications`. 
 
