@@ -1,6 +1,6 @@
-# BirdWatchBot Workshop
+# BirdWatchBot Workshop and recipes
 
-BirdWatchBot is a hands-on workshop created by [Creative Coding Utrecht](https://creativecodingutrecht.nl).
+BirdWatchBot is a hands-on workshop for builing your own [BirdNET-PI](https://github.com/Nachtzuster/BirdNET-Pi), this workshop is created by [Creative Coding Utrecht](https://creativecodingutrecht.nl).
 
 ## Introduction
 
@@ -9,16 +9,7 @@ The [BirdNET-PI](https://github.com/Nachtzuster/BirdNET-Pi) is a realtime acoust
 
 BirdNET-Pi is built on the [BirdNET framework](https://github.com/kahst/BirdNET-Analyzer). It is able to recognize bird sounds from a USB microphone or sound card in near realtime and share its data with the rest of the world.
 
-### Share your bird data with the word
-[BirdWeather](https://www.birdweather.com/) is a pioneering visualization platform that harnesses the [BirdNET](https://birdnet.cornell.edu/) artificial neural network to monitor bird vocalizations globally through 2000 active audio stations (and growing). 
-
-The living library of bird vocalizations can be found on [BirdWeather's Live Map](https://app.birdweather.com).
-
-### Share your bird data with the word
-
-The BirdNET-PI uses Apprise which allows the device to send notifications. You can send these notifications to multiple destinations, including Telegram and Discord. 
-
-## Installation steps
+## BirdNET-Pi Installation steps
 
 ### Set up your Raspberry Pi
 
@@ -26,14 +17,15 @@ The BirdNET-PI uses Apprise which allows the device to send notifications. You c
 For this workshop you'll need: 
 
 * Raspberry Pi 3B+ or higher with power supply
-* SD card of at least 16GB 
+* SD card with a capacity of at least 16GB 
 * USB-lavalier microphone. Check the [BirdNET-Pi forum](https://github.com/mcguirepr89/BirdNET-Pi/discussions/39 ) for suggestions. 
-* Your own laptop to login remotely to the Raspberry Pi 
+* Your own laptop to login to the BirdNET-Pi web dashboard and configure it via SSH.
 
 To work directly with the Raspberry Pi in the workshop space or at home, you'll need:
-* HDMI-monitor
-* HDMI cable for your model Raspberry Pi (either HDMI or Mini-HDMI).
+* HDMI-monitor + HDMI cable for your model Raspberry Pi (either HDMI or Mini-HDMI).
 * USB keyboard
+
+As an alternative to using an USB keyboard and HDMI screen to configure the BirdNET-Pi, e.g. its WiFi-connection, you can also use a [Adafruit PiUART](https://www.adafruit.com/product/3589). A recipe for using a PiUART can be found [here](recipes/pi-uart.md). These instructions will assume you're using a screen and keyboard.
 
 #### Flash your SD card
 Flash your SD card with the latest Raspberry Pi OS Lite (Bookworm, 64-bit). Since the BirdNET-Pi will not be connected to a keyboard and screen it typically makes sense to install Raspberry Pi OS Lite (Bookworm, 64-bit).
@@ -97,7 +89,7 @@ Warning: Permanently added '172.31.21.191' (ED25519) to the list of known hosts.
 
 _On Windows, you'll need to install and use an SSH client such as [PuTTY](https://www.putty.org/) to connect to the Raspberry Pi. Make sure to provide both the username `birdnet` and the IP address (e.g. `172.31.21.191`)._
 
-You can then provice the password. By default, this is set to `birdnet`.
+You can then provide the password. By default, this is set to `birdnet`.
 
 ```
 birdnet@172.31.21.191's password:
@@ -137,7 +129,7 @@ Install the software on your Raspberry Pi using the following command that uses 
 curl -s https://raw.githubusercontent.com/Nachtzuster/BirdNET-Pi/main/newinstaller.sh | bash
 ```
 
-Grab yourself a drink. The installation will take a while (at least 10 minutes). During the installation, make sure to not close your SSH client (e.g. your terminal or PuTTY) and to keep the Raspberry Pi connected to power.
+Grab yourself a drink. The installation will take a while depending on the model of your Raspberry Pi (typically at least 10 minutes). During the installation, make sure to not close your SSH client (e.g. your terminal or PuTTY) and to keep the Raspberry Pi connected to power.
 
 #### Open the BirdNET-Pi dashboard
 When the installation is complete, you can connect the BirdNET-Pi dashboard using your browser. To do this, type your IP address in the address bar. 
@@ -169,56 +161,16 @@ Now look up a nice recording of bird sounds. For instance, use [this video](http
 
 Detected bird sounds will become visible on the BirdNET-Pi dashboard under `Overview`.
 
-### Connect to BirdWeather
+#### Share your bird data with the world and/or your community
 
-#### Create an account on BirdWeather
-First, [create a free account](https://app.birdweather.com/login) on BirdWeather.
+Share your bird data with the world through [BirdWeather](recipes/birdweather.md) - [BirdWeather](https://www.birdweather.com/) is a pioneering visualization platform that harnesses the [BirdNET](https://birdnet.cornell.edu/) artificial neural network to monitor bird vocalizations globally through 2000 active audio stations (and growing). The living library of bird vocalizations can be found on [BirdWeather's Live Map](https://app.birdweather.com).
 
-You can then [create and manage your own station](https://app.birdweather.com/account/stations). In this process, you'll receive a `BirdWeather ID` that can be used to send BirdNET-Pi observations to Bird Weather.
+And, share your bird data within your community through [mobile notifications](recipes/notifications.md) - The BirdNET-PI uses Apprise which allows the device to send notifications. You can send these notifications to multiple destinations, including platforms such as Telegram and Signal. 
 
-#### Configure the BirdWeather ID on the BirdNET-Pi
-In the menu of the BirdNET-Pi dashboard, click on `Tools`. Then, select `Settings`.
-
-Configure your BirdWeather ID under `BirdWeather`.
-
-When you're ready, make sure to click on `Update Settings` at the bottom of the page.
-
-#### Test the connection to BirdWeather
-Open [BirdWeather](https://app.birdweather.com/) and search for your own station. 
-
-Since we're in the workshop space, play some bird sound recordings near your microphone. 
-
-### Receive notifications when a bird is detected
-The BirdNET-PI uses Apprise to send notifications. You can send these notifications to multiple destinations such as Telegram and Discord. For a comprehensive list of all supported platforms see [Apprise documentation](https://github.com/caronc/apprise?tab=readme-ov-file#supported-notifications).
-
-In the menu of the BirdNET-Pi dashboard, click on `Tools`. Then, select `Settings`. Notifications can be configured under `Notifications`. 
-
-BirdNET-Pi allows you to configure when you want to receive notifications. You can also change the notification text. 
-
-When you're ready, make sure to click on `Update Settings` at the bottom of the page.
-
-#### Telegram
-On Telegram, BirdNET-Pi can send a notification to a Telegram Bot. So, let's create one!
-
-Check out the detailed [Apprise documentation for using Telegram](https://github.com/caronc/apprise/wiki/Notify_telegram) for instructions on how to create your own Bot on Telegram.
-
-You now need to figure out the `chat_id` to configure the Telegram notification correctly. You can use the following URL for this:
-
-```
-https://api.telegram.org/bot{YOURBOTTOKEN}/getUpdates
-```
-
-For instance, if your Bot token is `7760312342:AAXx5HAxiANK9w-qXucHEl42sEe6GWcc36c` you can use the following URL:
-
-```
-https://api.telegram.org/bot7760312342:AAXx5HAxiANK9w-qXucHEl42sEe6GWcc36c/getUpdates
-
-
-#### Telegram Group
-Do you want to follow detections with multiple people? Our suggestion is to create a public Telegram Group to collect BirdNET-Pi notifications. To achieve this, add your Telegram Bot to this group and use the `chatid` of the group when configuring the Apprise notification via Telegram on your BirdNET-Pi.
 
 ### Prepare the Raspberry Pi for your own WiFi at home
 
+#### Using the Raspberry Pi configuration tool (raspi-config)
 Start the Raspberry Pi configuration tool on the Raspberry Pi:
 
 ```
@@ -232,3 +184,28 @@ Select `1 System Options`, then `S1 Wireless LAN`. Enter your own WiFi SSID (net
 At home, you should be able to connect to the Raspberry Pi using the address `birdnet.local`. This allows you to skip the step where you determine the IP address using a screen.
 
 If this doesn't work right away, connect your Raspberry Pi to a monitor and keyboard and run the Raspberry Pi configuration tool to set up your WiFi correctly.
+
+#### Using Network Manager 
+When logged in to the Raspberry Pi via SSH or using the Pi-UART, you can use the command-line tool `nmtui` to add/change/activate your WiFi-connections.
+
+As an alternative, you can also issue commands directly to Network Manager using `nmcli`.
+
+First, make sure WiFi is enabled on the Raspberry Pi: 
+
+```
+sudo nmcli radio wifi on
+```
+
+The, connect to your network with SSID `YOUR_WIFI_SSID` and password `YOUR_WIFI_PASSWORD` using: 
+
+```
+sudo nmcli dev wifi connect "YOUR_WIFI_SSID" password "YOUR_WIFI_PASSWORD"
+```
+
+When you need to connect again in some later stage (e.g. to reconnect to a hotspot):
+
+```
+sudo nmcli dev wifi connect YOUR_WIFI_SSID hidden yes
+```
+
+Adding `hidden yes` will tell Network Manager to try to connect even when the SSID has not been discovered or is not discoverable (i.e. hidden).
