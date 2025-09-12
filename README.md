@@ -161,11 +161,13 @@ Now look up a nice recording of bird sounds. For instance, use [this video](http
 
 Detected bird sounds will become visible on the BirdNET-Pi dashboard under `Overview`.
 
-#### Share your bird data with the world and/or your community
+### Share your bird data with the world and/or your community
 
-Share your bird data with the world through [BirdWeather](recipes/birdweather.md) - [BirdWeather](https://www.birdweather.com/) is a pioneering visualization platform that harnesses the [BirdNET](https://birdnet.cornell.edu/) artificial neural network to monitor bird vocalizations globally through 2000 active audio stations (and growing). The living library of bird vocalizations can be found on [BirdWeather's Live Map](https://app.birdweather.com).
+#### BirdWeather
+[Recipe for BirdWeather](recipes/birdweather.md) - Share your bird data with the world through [BirdWeather](https://www.birdweather.com/). BirdWeather is a pioneering visualization platform that harnesses the [BirdNET](https://birdnet.cornell.edu/) artificial neural network to monitor bird vocalizations globally through 2000 active audio stations (and growing). The living library of bird vocalizations can be found on [BirdWeather's Live Map](https://app.birdweather.com).
 
-And, share your bird data within your community through [mobile notifications](recipes/notifications.md) - The BirdNET-PI uses Apprise which allows the device to send notifications. You can send these notifications to multiple destinations, including platforms such as Telegram and Signal. 
+#### Mobile notifications (Telegram and Signal)
+[Recipe for mobile notifications](recipes/notifications.md) - Share your bird data within your community through mobile notifications. BirdNET-PI uses Apprise which allows the device to send notifications. You can send these notifications to multiple destinations, including platforms such as Telegram and Signal. 
 
 
 ### Prepare the Raspberry Pi for your own WiFi at home
